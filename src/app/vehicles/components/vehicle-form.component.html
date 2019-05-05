@@ -1,0 +1,173 @@
+<mat-card class="mb-3">
+  <mat-card-header class="d-flex p-1 vehicle-header">
+    <mat-card-title>
+      Vehicle Form
+    </mat-card-title>
+  </mat-card-header>
+  <form class="form-container" novalidate #vehicleForm="ngForm" name="vehicleForm">
+    <mat-card-content class="d-flex flex-wrap">
+      <div class="col-md-12 col-12 d-flex">
+        <mat-card class="px-3 d-flex flex-column col-12">
+          <mat-card-content class="d-flex flex-column">
+
+            <mat-form-field class="searchAutocomplete">
+              <input type="text" placeholder="Search Vehicle" aria-label="Number" matInput [formControl]="searchModel" [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filterOptions | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Registration" required name="registration" [(ngModel)]="modelVehicle.registration">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Model Year" name="modelYear" [(ngModel)]="modelVehicle.modelYear">
+                <mat-option *ngFor="let modelYearOption of modelYearOptions" [value]="modelYearOption.value">{{ modelYearOption.text}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Make" required name="make" [(ngModel)]="modelVehicle.make">
+                <mat-option *ngFor="let makeOption of makeOptions" [value]="makeOption.value">{{ makeOption.text}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Model" required name="model" [(ngModel)]="modelVehicle.model">
+                <mat-option *ngFor="let modelOption of modelOptions" [value]="modelOption.value">{{ modelOption.text}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Derivative" name="derivative" [(ngModel)]="modelVehicle.derivative">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="VIN" name="vin" [(ngModel)]="modelVehicle.vin">
+            </mat-form-field>
+
+            <mat-form-field (click)="registrationDate.open()">
+              <input matInput (click)="registrationDate.open()" [matDatepicker]="registrationDate" placeholder="REG Date" name="registrationDate" [(ngModel)]="modelVehicle.registrationDate">
+              <mat-datepicker-toggle matSuffix [for]="registrationDate"></mat-datepicker-toggle>
+              <mat-datepicker #registrationDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field (click)="manufactureDate.open()">
+              <input matInput (click)="manufactureDate.open()" [matDatepicker]="manufactureDate" placeholder="Date Of ManuFacture" name="manufactureDate" [(ngModel)]="modelVehicle.manufactureDate">
+              <mat-datepicker-toggle matSuffix [for]="manufactureDate"></mat-datepicker-toggle>
+              <mat-datepicker #manufactureDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="ODOMETER Reading" name="odometer" [(ngModel)]="modelVehicle.odometer">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Color" name="color" [(ngModel)]="modelVehicle.color">
+
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Paint Code" name="paintCode" [(ngModel)]="modelVehicle.paintCode">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Trim" name="trim" [(ngModel)]="modelVehicle.trim">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Fuel" name="fuel" [(ngModel)]="modelVehicle.fuel">
+                <mat-option value="">Select Fuel</mat-option>
+                <mat-option *ngFor="let fuelOption of fuelOptions" [value]="fuelOption.value">{{ fuelOption.text}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Door Plan" name="doorPlan" [(ngModel)]="modelVehicle.doorPlan">
+            </mat-form-field>
+
+            <h2 class="has-divider-bottom">GEARBOX & ENGNIG</h2>
+
+            <mat-form-field>
+              <input matInput placeholder="Gear Box" name="gearbox" [(ngModel)]="modelVehicle.gearbox">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Gear Box No" name="gearboxNo" [(ngModel)]="modelVehicle.gearboxNo">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="CO2 Emissions" name="co2Emission" [(ngModel)]="modelVehicle.co2Emission">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Engine No" name="engineNo" [(ngModel)]="modelVehicle.engineNo">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Engine Code" name="engineCode" [(ngModel)]="modelVehicle.engineCode">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Engine Size" name="engineSize" [(ngModel)]="modelVehicle.engineSize">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Power" name="power" [(ngModel)]="modelVehicle.power">
+            </mat-form-field>
+
+            <h2 class="has-divider-bottom">KEY NO & RADIO NO</h2>
+
+            <mat-form-field>
+              <input matInput placeholder="Key No" name="keyNo" [(ngModel)]="modelVehicle.keyNo">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Radio No" name="radioNo" [(ngModel)]="modelVehicle.radioNo">
+            </mat-form-field>
+
+            <h2 class="has-divider-bottom">REMINDERS</h2>
+
+            <mat-form-field (click)="motDate.open()">
+              <input matInput (click)="motDate.open()" [matDatepicker]="motDate" placeholder="Mot Due Date" name="motDate" [(ngModel)]="modelVehicle.motDate">
+              <mat-datepicker-toggle matSuffix [for]="motDate"></mat-datepicker-toggle>
+              <mat-datepicker #motDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field (click)="serviceDate.open()">
+              <input matInput (click)="serviceDate.open()" [matDatepicker]="serviceDate" placeholder="Service Due Date" name="serviceDate" [(ngModel)]="modelVehicle.serviceDate">
+              <mat-datepicker-toggle matSuffix [for]="serviceDate"></mat-datepicker-toggle>
+              <mat-datepicker #serviceDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field (click)="warrentyDate.open()">
+              <input matInput (click)="warrentyDate.open()" [matDatepicker]="warrentyDate" placeholder="Warrenty Ends" name="warrentyDate" [(ngModel)]="modelVehicle.warrentyDate">
+              <mat-datepicker-toggle matSuffix [for]="warrentyDate"></mat-datepicker-toggle>
+              <mat-datepicker #warrentyDate></mat-datepicker>
+            </mat-form-field>
+
+            <div style="width:100%; height:40px; background:#cacecb; border-radius:5px;">
+              <p style="line-height:40px; padding-left:5px;">Notes</p>
+            </div>
+            <mat-form-field>
+              <textarea matInput placeholder="Notes" name="note" [(ngModel)]="modelVehicle.note"></textarea>
+            </mat-form-field>
+            <mat-card-footer class="d-flex justify-content-end p-1">
+              <button class="ml-15 mat-button" mat-button >
+                <mat-icon>horizontal_split</mat-icon> Options <mat-icon>keyboard_arrow_down</mat-icon>
+              </button>
+              <button class="success ml-15 mat-button btn-footer footer-save-button" mat-button [disabled]="!vehicleForm.valid"
+                      (click)="saveVehicle()">Save</button>
+
+            </mat-card-footer>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card-content>
+
+  </form>
+</mat-card>
+  

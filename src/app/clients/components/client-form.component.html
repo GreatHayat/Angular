@@ -1,0 +1,226 @@
+<div class="container clients-container mt-5">
+
+  <mat-card class="mb-3">
+    <mat-card-header>
+      <mat-card-title>
+        Client Form
+      </mat-card-title>
+    </mat-card-header>
+    <form class="form-container" #clientForm="ngForm" name="clientForm">
+      <mat-card-content class="d-flex flex-wrap">
+        <div class="col-md-4 col-12 d-flex">
+          <mat-card class="px-3 d-flex flex-column col-12">
+            <mat-card-header>
+              <mat-card-title>
+                CONTACT
+              </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content class="d-flex flex-column">
+              <mat-form-field>
+                <input matInput placeholder="type" name="type" #type="ngModel" [(ngModel)]="model.type" required>
+                <mat-error *ngIf="type.invalid">You must enter a type</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="title" name="title" #title="ngModel" [(ngModel)]="model.title">
+                <mat-error *ngIf="title.invalid">You must enter a title</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="firstname" name="firstname" #firstname="ngModel"
+                  [(ngModel)]="model.firstname" required></textarea>
+                <mat-error *ngIf="firstname.invalid">You must enter a firstname</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="lastname" name="lastname" #lastname="ngModel"
+                  [(ngModel)]="model.lastname" required></textarea>
+                <mat-error *ngIf="lastname.invalid">You must enter a lastname</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="name" name="name" #name="ngModel" [(ngModel)]="model.name"
+                  required></textarea>
+                <mat-error *ngIf="name.invalid">You must enter a name</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="vat" name="vat" #vat="ngModel" [(ngModel)]="model.vat"></textarea>
+                <mat-error *ngIf="vat.invalid">You must enter a vat</mat-error>
+              </mat-form-field>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="col-md-4 col-12 d-flex">
+          <mat-card class="px-3 d-flex flex-column col-12">
+            <mat-card-header>
+              <mat-card-title>
+                BILLING ADDRESS
+              </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content class="d-flex flex-column">
+              <mat-form-field>
+
+                <textarea matInput placeholder="clientId" name="clientId" #clientId="ngModel"
+                  [(ngModel)]="model.billingAddress.clientId" required></textarea>
+                <mat-error *ngIf="clientId.invalid">You must enter a clientId</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="line1" name="line1" #line1="ngModel"
+                  [(ngModel)]="model.billingAddress.line1" required></textarea>
+                <mat-error *ngIf="line1.invalid">You must enter a line1</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="line2" name="line2" #line2="ngModel"
+                  [(ngModel)]="model.billingAddress.line2"></textarea>
+                <mat-error *ngIf="line2.invalid">You must enter a vat</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="postcode" name="postcode" #postcode="ngModel"
+                  [(ngModel)]="model.billingAddress.postcode" required></textarea>
+                <mat-error *ngIf="postcode.invalid">You must enter a postcode</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="country" name="country" #country="ngModel"
+                  [(ngModel)]="model.billingAddress.country" required></textarea>
+                <mat-error *ngIf="country.invalid">You must enter a country</mat-error>
+              </mat-form-field>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-md-4 col-12 d-flex">
+          <mat-card class="px-3 d-flex flex-column col-12">
+            <mat-card-header>
+              <mat-card-title>
+                ADDRESS
+              </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content class="d-flex flex-column">
+
+              <mat-form-field>
+
+                <textarea matInput placeholder="clientId" name="clientId" #clientId="ngModel"
+                  [(ngModel)]="model.address.clientId" required></textarea>
+                <mat-error *ngIf="clientId.invalid">You must enter a clientId</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="line1" name="line1" #line1="ngModel" [(ngModel)]="model.address.line1"
+                  required></textarea>
+                <mat-error *ngIf="line1.invalid">You must enter a line1</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="line2" name="line2" #line2="ngModel" [(ngModel)]="model.address.line2"
+                  required></textarea>
+                <mat-error *ngIf="line2.invalid">You must enter a vat</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="postcode" name="postcode" #postcode="ngModel"
+                  [(ngModel)]="model.address.postcode" required></textarea>
+                <mat-error *ngIf="postcode.invalid">You must enter a postcode</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <textarea matInput placeholder="country" name="country" #country="ngModel"
+                  [(ngModel)]="model.address.country" required></textarea>
+                <mat-error *ngIf="country.invalid">You must enter a country</mat-error>
+              </mat-form-field>
+
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-card-content>
+      <mat-card-footer class="d-flex justify-content-end p-1">
+        <button class="danger ml-15 mat-raised-button">Cancel</button>
+        <button class="success ml-15 mat-raised-button" mat-raised-button [disabled]="clientForm.invalid"
+          (click)="saveClient()">Save</button>
+      </mat-card-footer>
+    </form>
+  </mat-card>
+
+  
+  <mat-tab-group (selectedTabChange)="selectionChange($event)">
+    <mat-tab *ngFor="let tab of tabs; trackBy:trackByFunction" label="{{tab.tabName}}">
+    </mat-tab>
+  </mat-tab-group>
+  <mat-card-content>
+    <div [hidden]="currentTab.tabName !== 'EVENTS/NOTES'">
+      EVENTS/NOTES
+
+    </div>
+    <div [hidden]="currentTab.tabName !== 'JOBS'">
+      JOBS
+
+    </div>
+    <div [hidden]="currentTab.tabName !== 'VEHICLES'">
+      VEHICLES
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- registration Column -->
+        <ng-container matColumnDef="registration">
+          <th mat-header-cell *matHeaderCellDef> registration </th>
+          <td mat-cell *matCellDef="let element"> {{element.registration}} </td>
+        </ng-container>
+
+        <!-- from Column -->
+        <ng-container matColumnDef="from">
+          <th mat-header-cell *matHeaderCellDef> from </th>
+          <td mat-cell *matCellDef="let element"> {{element.from}} </td>
+        </ng-container>
+        <!-- to Column -->
+        <ng-container matColumnDef="to">
+          <th mat-header-cell *matHeaderCellDef> to </th>
+          <td mat-cell *matCellDef="let element"> {{element.to}} </td>
+        </ng-container>
+
+        <!-- make Column -->
+        <ng-container matColumnDef="make">
+          <th mat-header-cell *matHeaderCellDef> make </th>
+          <td mat-cell *matCellDef="let element"> {{element.make}} </td>
+        </ng-container>
+
+        <!-- model Column -->
+        <ng-container matColumnDef="model">
+          <th mat-header-cell *matHeaderCellDef> model </th>
+          <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+        </ng-container>
+
+        <!-- fuel Column -->
+        <ng-container matColumnDef="fuel">
+          <th mat-header-cell *matHeaderCellDef> fuel </th>
+          <td mat-cell *matCellDef="let element"> {{element.fuel}} </td>
+        </ng-container>
+
+        <!-- odometer Column -->
+        <ng-container matColumnDef="odometer">
+          <th mat-header-cell *matHeaderCellDef> odometer </th>
+          <td mat-cell *matCellDef="let element"> {{element.odometer}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <div [hidden]="currentTab.tabName !== 'INVOICES'">
+      INVOICES
+
+    </div>
+    <div [hidden]="currentTab.tabName !== 'PURCHASES'">
+      PURCHASES
+
+    </div>
+    <div [hidden]="currentTab.tabName !== 'SALES'">
+      SALES
+
+    </div>
+  </mat-card-content>
